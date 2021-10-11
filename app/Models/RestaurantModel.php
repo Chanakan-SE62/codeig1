@@ -7,5 +7,5 @@
 class RestaurantModel extends Model{
     protected $table = 'restaurants'; //เข้าถึงตารางชื่อ restaurants
     protected $primaryKey = 'id'; //กำหนด primaryKey
-    protected $allowdFields = ['id', 'name', 'type', 'imageurl']; //อนุญาตให้เข้าถึงฟิวเหล่านี้ได้
+    protected $allowedFields = ['id', 'name', 'type', 'imageurl']; //อนุญาตให้เข้าถึงฟิวเหล่านี้ได้
 }
