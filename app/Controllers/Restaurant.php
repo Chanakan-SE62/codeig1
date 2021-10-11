@@ -16,4 +16,15 @@ class Restaurant extends ResourceController {
         $data['restaurants'] = $this->model->orderBy('id', 'DESC')->findAll();
         return $this->respond($data);
     }
+
+    //Get Restaurant by id
+    public function show($id = null){
+        $data = $this->model->getWhere(['id'=>$id])->getResult();
+        if($data){
+            return $this->respond($data);
+        }
+        else{
+            return $this->failNotFound('No Restaurant found with id : ' . $id);
+        }
+    }
 }
