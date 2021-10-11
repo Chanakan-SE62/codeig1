@@ -32,7 +32,16 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');
-$routes->resource('restaurant'); //ในวงเล็บคือชื่อคอนโทรเลอร์
+
+//auto create routes
+//$routes->resource('restaurant'); //ในวงเล็บคือชื่อคอนโทรเลอร์
+
+//manual creation of router
+$routes->get('/apis/restaurants', 'Restaurant::index');
+$routes->get('/apis/restaurants/(:num)', 'Restaurant::show/$1');
+$routes->post('/apis/restaurants/(:num)', 'Restaurant::create');
+$routes->put('/apis/restaurants/(:num)', 'Restaurant::update/$1');
+$routes->delete('/apis/restaurants/(:num)', 'Restaurant::delete/$1');
 
 /*
  * --------------------------------------------------------------------
