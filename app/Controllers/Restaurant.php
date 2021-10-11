@@ -27,4 +27,14 @@ class Restaurant extends ResourceController {
             return $this->failNotFound('No Restaurant found with id : ' . $id);
         }
     }
+
+    public function create(){
+        $param = [
+            'name' => $this->request->getVar('name'),
+            'type' => $this->request->getVar('type'),
+            'imageurl' => $this->request->getVar('imageurl'),
+        ];
+        $this->model->insert($param);
+        return $this->respondCreated("Restaurant created");
+    }
 }
